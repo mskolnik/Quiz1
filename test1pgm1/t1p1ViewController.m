@@ -9,6 +9,8 @@
 #import "t1p1ViewController.h"
 
 @interface t1p1ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *myLabel;
+- (IBAction)swap:(id)sender;
 
 @end
 
@@ -18,6 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self.myLabel setTextColor:[UIColor greenColor]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +29,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)swap:(id)sender {
+    static int color;
+    if (color == 1) {
+        color = 0;
+        [self.myLabel setTextColor:[UIColor greenColor]];
+    } else {
+        color = 1 ;
+        [self.myLabel setTextColor:[UIColor redColor]];
+    }
+}
 @end
